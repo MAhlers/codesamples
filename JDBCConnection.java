@@ -4,12 +4,15 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import myPkg.GetProperties;
 
-public class JDBCConnection {
-	
-	static final String user = "user", password = "pass";
+public class JDBCConnection {	
 	
 	public static Connection OpenDBConnection(String server, String db) throws ClassNotFoundException, IOException {
+		
+		Properties props = GetProperties.getProperties();
+		String user = props.getProperty("dbUser"), password = props.getProperty("dbPass");
+		
 		Connection jCon = null;
 		try {
 			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
