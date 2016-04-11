@@ -18,7 +18,7 @@ public class JDBCConnection {
                     + "user=" + user + ";password=" + password + ";";
 	        jCon = DriverManager.getConnection(connString);
 		} catch (SQLException e) {
-			LogMessage.postLogMessage("EXCEPTION: JDBCConnection.OpenDBConnection - " + e,null);
+			LogMessage.postLogMessage("EXCEPTION: JDBCConnection.OpenConnection - " + e);
 		}
 		return jCon;
 	}
@@ -27,7 +27,7 @@ public class JDBCConnection {
 		try {
 			conn.close();
 		} catch (SQLException e) {
-			LogMessage.postLogMessage("EXCEPTION: JDBCConnection.CloseDBConnection - " + e,null);
+			LogMessage.postLogMessage("EXCEPTION: JDBCConnection.CloseConnection - " + e);
 		}
 	}
 }
